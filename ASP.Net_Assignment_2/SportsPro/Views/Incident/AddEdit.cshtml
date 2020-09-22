@@ -1,0 +1,79 @@
+﻿@model IncidentListViewModel
+
+@{
+    string title = Model.Action + " Incident";
+    ViewData["Title"] = title;
+}
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<h1>@title</h1>
+
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ActiveIncident.CustomerID">Customer</label>
+        <select asp-for="@Model.ActiveIncident.CustomerID"
+                asp-items="@(new SelectList(Model.Customers,
+                         "CustomerID", "FullName", (Model.ActiveIncident.Customer != null ? Model.ActiveIncident.Customer.CustomerID : 0)))"
+                class="form-control">
+            <option value="">Select a Customer...</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ActiveIncident.ProductID">Product</label>
+        <select asp-for="@Model.ActiveIncident.ProductID"
+                asp-items="@(new SelectList(Model.Products,
+                         "ProductID", "Name", (Model.ActiveIncident.Product != null ? Model.ActiveIncident.Product.ProductID : 0)))"
+                class="form-control">
+            <option value="">Select a Product...</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ActiveIncident.Title">Title</label>
+        <input asp-for="@Model.ActiveIncident.Title" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ActiveIncident.Description">Description</label>
+        <input asp-for="@Model.ActiveIncident.Description" class="form-control input-group-lg">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ActiveIncident.TechnicianID">Technician</label>
+        <select asp-for="@Model.ActiveIncident.TechnicianID"
+                asp-items="@(new SelectList( Model.Technicians,
+                         "TechnicianID", "Name", (Model.ActiveIncident.Technician != null ? Model.ActiveIncident.Technician.TechnicianID : 0)))"
+                class="form-control">
+            <option value="">Select a Technician...</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ActiveIncident.DateOpened">Date Opened</label>
+        <input asp-for="@Model.ActiveIncident.DateOpened" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ActiveIncident.DateClosed">Date Closed</label>
+        <input asp-for="@Model.ActiveIncident.DateClosed" class="form-control">
+    </div>
+
+
+    <input type="hidden" asp-for="@Model.ActiveIncident.IncidentID" />
+
+    <button type="submit" class="btn btn-info">Save</button>
+
+    <a asp-controller="Incident" asp-action="List"
+       class="btn btn-success">Cancel</a>
+
+</form>
+
+
+
+
