@@ -1,0 +1,43 @@
+﻿@model List<Incident>
+   
+@{
+    ViewData["Title"] = "Incident Manager";
+}
+<h1>Incident Manager</h1>
+
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr class="table table-hover">
+            <th scope="col">Title</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Product</th>
+            <th scope="col">Date Opened</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var incident in Model)
+        {
+            <tr>
+                <td>@incident.Title</td>
+                <td>@incident.Customer.FullName</td>
+                <td>@incident.Product.Name</td>
+                <td>@incident.DateOpened</td>
+                <td>
+                    <a asp-controller="Incident" asp-action="Edit"
+                       asp-route-id="@incident.IncidentID" class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Incident" asp-action="Delete"
+                       asp-route-id="@incident.IncidentID" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+<a asp-controller="Incident" asp-action="Add" class="btn btn-primary">Add Incident</a>
