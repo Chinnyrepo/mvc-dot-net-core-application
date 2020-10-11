@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANn7hTqS35UezjAJjtzqqPgAAAAACAAAAAAAQZgAAAAEAACAAAADSNgTKQGXTOnwquYe7AwVXQ7yTs2+/Gny5omzq2VNB5QAAAAAOgAAAAAIAACAAAAD0l9thYBd5ds0AwAleQ0phUbMmSzZJV5m8Rrw639s6fYAAAACfS+12dlaHCNU10Lctnx8jLL1nsJKuHlRajIXnax+qxEQLqcX0YJYO+Tfr420ycnmFqza3dLwnZRf8S2Dn6zkqwuK/g/PcYoRvoXBwYT3qO9Ta3G2lJb6duaTX3q9U0YBBsRYCpIzMf2zekMhrnz8meq6Rc0YUmHxyYtaq63Iqk0AAAAClFOe/pWE3PNrDk2biUfYNY5M0aAhR3tM0jb4/a728nXrkY1UNuy/rF5HptBBXbeIMxvKOJUEBYCS/dHUq4jV/</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SportsPro">
+      <Value>Data Source=tcp:sportsprodbserver1.database.windows.net,1433%3bInitial Catalog=SportsPro_db%3bUser Id=Chinenye%40sportsprodbserver1%3bPassword=Team1/1234</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="SportsProContextConnection">
+      <Value>Data Source=tcp:sportsprodbserver1.database.windows.net,1433%3bInitial Catalog=SportsPro_db%3bUser Id=Chinenye%40sportsprodbserver1%3bPassword=Team1/1234</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="SportsPro.Models.SportsProContext">
+      <Value>Data Source=tcp:sportsprodbserver1.database.windows.net,1433%3bInitial Catalog=SportsPro_db%3bUser Id=Chinenye%40sportsprodbserver1%3bPassword=Team1/1234</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
